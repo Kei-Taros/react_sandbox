@@ -1,3 +1,5 @@
+import * as Act from './Action';
+
 const initialState = {
   count_A: 0,
   count_B: 0,
@@ -6,30 +8,20 @@ const initialState = {
 
 const counter = (state = initialState, action) => {
   switch (action.type) {
-    case 'INCREMENT_A':
+    case Act.COUNTER_A:
       return {
         ...state,
-        count_A: state.count_A + 1
+        ...action.payload
       }
-    case 'DECREMENT_A':
+    case Act.COUNTER_B:
       return {
         ...state,
-        count_A: state.count_A - 1
+        ...action.payload
       }
-    case 'INCREMENT_B':
+    case Act.COUNTER_ADD:
       return {
         ...state,
-        count_B: state.count_B + 1
-      }
-    case 'DECREMENT_B':
-      return {
-        ...state,
-        count_B: state.count_B - 1
-      }
-    case 'ADD_COUNT':
-      return {
-        ...state,
-        add_count: state.count_A + state.count_B
+        ...action.payload
       }
     default:
       return state
