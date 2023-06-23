@@ -1,8 +1,24 @@
-import { applyMiddleware, createStore } from 'redux'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
+import {
+  applyMiddleware,
+  combineReducers,
+  createStore as reduxCreateStore
+} from 'redux'
+import counterReducer from './reducers'
 import thunk from 'redux-thunk'//”ñ“¯Šúˆ—‚Ì‚½‚ß‚É’Ç‰Á
-import counter from './Reducer'
 
 
-const store = createStore(counter, applyMiddleware(thunk))
+const createStore = (history) => {
+  return reduxCreateStore(
+    combineReducers({
+      router: connectRouter(history),
+      count: counterReducer
+    }),
+    applyMiddleware(
+      routerMiddleware(history),
+      thunk
+    )
+  )
+}
 
-export default store
+export default createStore

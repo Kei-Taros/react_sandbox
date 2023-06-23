@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { incdecSystem } from './Operations'
+import { incdecSystem } from '../operations'
+import { Link } from 'react-router-dom'
 
 export const INC_A = "INC_A"
 export const DEC_A = "DEC_A"
@@ -8,10 +9,10 @@ export const INC_B = "INC_B"
 export const DEC_B = "DEC_B"
 export const ADD = "ADD"
 
-const App = () => {
-  const count_A = useSelector((state) => state.count_A)//ステートの状態を取得する
-  const count_B = useSelector((state) => state.count_B)
-  const add_count = useSelector((state) => state.add_count)
+export const Counter = () => {
+  const count_A = useSelector((state) => state.count.count_A)//ステートの状態を取得する
+  const count_B = useSelector((state) => state.count.count_B)
+  const add_count = useSelector((state) => state.count.add_count)
   const dispatch = useDispatch()
 
   return (
@@ -55,8 +56,11 @@ const App = () => {
         </button>
         Count: {count_B}
       </div>
+      <br />
+      <div>
+        Home to <Link to={`/`}>this.</Link>
+      </div>
     </div>
   )
 }
 
-export default App

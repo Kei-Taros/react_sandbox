@@ -1,12 +1,14 @@
-import * as Act from './Action';
+import * as Act from './action';
 
 const initialState = {
-  count_A: 0,
-  count_B: 0,
-  add_count: 0
+  count: {
+    count_A: 0,
+    count_B: 0,
+    add_count: 0
+  }
 }
 
-const counter = (state = initialState, action) => {
+const counterReducer = (state = initialState.count, action) => {
   switch (action.type) {
     case Act.COUNTER_A:
       return {
@@ -28,4 +30,4 @@ const counter = (state = initialState, action) => {
   }
 }
 
-export default counter
+export default counterReducer
