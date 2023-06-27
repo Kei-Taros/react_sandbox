@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { incdecSystem } from '../operations'
+import { incdecSystem } from '../reducks/calcsys/operations'
 import { Link } from 'react-router-dom'
 
 export const INC_A = "INC_A"
