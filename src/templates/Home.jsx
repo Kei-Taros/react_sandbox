@@ -15,6 +15,9 @@ const Home = () => {
         Home
       </h1>
       <div>
+        SandBox to <Link to={`/sandbox`}>this.</Link>
+      </div>
+      <div>
         Counter to <Link to={`/counter`}>this.</Link>
       </div>
       <div>
