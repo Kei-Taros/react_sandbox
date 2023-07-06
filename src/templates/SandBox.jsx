@@ -6,12 +6,13 @@ const SandBox = () => {
   const { register, handleSubmit, reset, control } = useForm({
     // input の value の 初期値を設置
     defaultValues: {
+      title: '',
       tasks: [{ taskValue: "" }]
     }
   });
 
   // input を動的に増減させるための設定
-  const { fields, prepend, append, remove } = useFieldArray({
+  const { fields, append, remove } = useFieldArray({
     control,
     name: "tasks"
   });
@@ -19,9 +20,14 @@ const SandBox = () => {
   // submitボタンを押した時に行う処理
   const onSubmit = (data) => {
     const list = [];
-    data.tasks.forEach((item, index) =>
-      list.push(`\nタスク番号${index}:${item.taskValue}`)
-    );
+    data.tasks.forEach((item, index) => {
+      if (item.taskValue !== '') {
+        list.push(item.taskValue)
+      }
+    })
+    console.log(list)
+    console.log(data.title)
+    
     // 送信後 input の入力欄を初期化
     reset();
   };
@@ -42,12 +48,10 @@ const SandBox = () => {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <button
-          type="button"
-          onClick={() => [prepend({ taskValue: "" }), countUp()]}
-        >
-          前に追加
-        </button>
+        <input
+          {...register("title")}
+          placeholder="Title"
+        />
 
         {fields.map((field, index) => (
           <div key={field.id}>
