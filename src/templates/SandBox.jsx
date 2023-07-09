@@ -7,7 +7,7 @@ const SandBox = () => {
     // input の value の 初期値を設置
     defaultValues: {
       title: '',
-      tasks: [{ taskValue: "" }]
+      tasks: [{ taskValue: "", taskValue2:"" }]
     }
   });
 
@@ -22,7 +22,7 @@ const SandBox = () => {
     const list = [];
     data.tasks.forEach((item, index) => {
       if (item.taskValue !== '') {
-        list.push(item.taskValue)
+        list.push(item)
       }
     })
     console.log(list)
@@ -64,7 +64,7 @@ const SandBox = () => {
 
         <button
           type="button"
-          onClick={() => [append({ taskValue: "" }), countUp()]}
+          onClick={() => [append({ taskValue: "", taskValue2: "" }), countUp()]}
         >
           後ろに追加
         </button>
