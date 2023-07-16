@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm, useFieldArray } from "react-hook-form";
 
-const SandBox = () => {
+const MovingArray = () => {
 
   const { register, handleSubmit, reset, control } = useForm({
     // input の value の 初期値を設置
@@ -81,4 +81,4 @@ const SandBox = () => {
   );
 };
 
-export default SandBox;
+export default MovingArray;

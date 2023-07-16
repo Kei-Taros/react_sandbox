@@ -15,10 +15,13 @@ const Home = () => {
         Home
       </h1>
       <div>
-        SandBox to <Link to={`/sandbox`}>this.</Link>
+        Counter to <Link to={`/counter`}>this.</Link>
       </div>
       <div>
-        Counter to <Link to={`/counter`}>this.</Link>
+        MovingArray to <Link to={`/movingarray`}>this.</Link>
+      </div>
+      <div>
+        UltimateChoice to <Link to={`/ultchoice`}>this.</Link>
       </div>
       <div>
         SignUp to <Link to={`/signup`}>this.</Link>
